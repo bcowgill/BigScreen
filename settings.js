@@ -1,6 +1,6 @@
 var SETTINGS = {
-   'DROPBOX': 'file://C|sandbox/AdsMetricsDropboxS',
-   'WIDTH': 1024,
-   'HEIGHT': 768,
+   'DROPBOX': 'file://C|sandbox/AdsMetricsDropbox',
+   'WIDTH': 1920,
+   'HEIGHT': 1200,
    '-': '-'
 };

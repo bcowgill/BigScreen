@@ -3,13 +3,13 @@
 
 source settings.sh
 
-killall $BROWSER
-sleep 5
+#killall "$BROWSER"
+#sleep 5
 
 DISPLAY=:0.0
 #DISPLAY=:0
 
-"$BROWSER" "$BIGSCREENURL/bigscreen.html" \
+$BROWSER "$BIGSCREENURL/bigscreen.html" \
 &
 
 echo You will have to manually log in to the Rally Tab in Chromium
