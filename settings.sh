@@ -1,6 +1,11 @@
 # set up dirs and stuff here
 # could do host detection or just hard code values for local setup
 
+# X11 display var if needed
+#DISPLAY=:0.0
+#DISPLAY=:0
+#export DISPLAY
+
 SCRWIDTH=1920
 SCRHEIGHT=1080
 
