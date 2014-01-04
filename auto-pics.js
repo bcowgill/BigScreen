@@ -1,0 +1,4 @@
+var AutoPics = [
+   '-'
+];
+AutoPics.pop();
