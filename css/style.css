@@ -98,13 +98,13 @@ body { background-color: #FFF1E0; overflow-x: hidden; overflow-y: hidden; }
 /* note, keep the comments below as this file is parsed to replace width/height as needed*/
 .content {
    width: 1920px; /*WIDTH*/
-   height: 1200px; /*HEIGHT*/
+   height: 1080px; /*HEIGHT*/
    border: none;
 }
 
 .content img, .content iframe {
    width: 1920px; /*WIDTH*/
-   height: 1200px; /*HEIGHT*/
+   height: 1080px; /*HEIGHT*/
 }
 
 @media all and (orientation:portrait) {

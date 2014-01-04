@@ -30,5 +30,5 @@ grep -E 'WIDTH|HEIGHT' css/style.css
 
 # Update bigscreen.html with dropbox location
 echo Updating bigscreen.html with DROPBOX values on hard coded images
-perl -i.bak -pne "s{src='[^']+/Photos}{src='$DROPBOXURL/Photos}xmsg" bigscreen.html
+perl -i.bak -pne "s{src='[^']+/$DROPBOXSUBDIR}{src='$DROPBOXURL}xmsg" bigscreen.html
 
