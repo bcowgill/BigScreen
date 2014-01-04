@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+/*jslint browser: true, plusplus: true, maxerr: 1000, indent: 3 */
+/*global
+   URLs, choose, document, effectTime, hideTopPanel, idx, jQuery, loadContent, onBottomPanelHidden, onTopPanelHidden, refreshTime, setTimeout, showTopPanel
+*/
+/*properties
+    '-', attr, blind, bounce, clip, drop, explode, fold, hide, highlight, html,
+    none, percent, puff, random, ready, scale, shake, show, slide, click, size, horizFirst, fold2, name, Options, replace, effect
+*/
+
+// TODO shake effect more rapidly
+
+"use strict";
+var VERSION = 1;
+</script>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   <title>Slider Prototype</title>
+
+   <link type="text/css" href="css-html5-reset/html5reset-1.6.1.css" rel="stylesheet" />
+   <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+   <script src="js/jquery-1.6.2.min.js"></script>
+   <script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+
+   <style>
+
+body {
+   background-color: #333333;
+   overflow-x: hidden;
+   overflow-y: hidden;
+}
+
+.hidden {
+   display: none;
+}
+
+.content {
+   width: 1280px;
+   height: 768px;
+   border: none;
+}
+
+.content img, .content iframe {
+   width: 1280px;
+   height: 768px;
+}
+
+   </style>
+
+</head>
+<body>
+   <div id="frame" class="slider">
+
+      <div id="panel1" class="content">
+         <iframe id="img1" src="it-crowd-1280x854.png"/></iframe>
+      </div>
+
+      <div id="panel2" class="content">
+         <iframe id="img2" src="scotland-bass-rock-rainbow-1.png"></iframe>
+      </div>
+
+   </div>
+
+<script>
+var idx = 0;
+var stop = false;
+var effectTime = 1000;
+var refreshTime = 8000;
+
+var URLs = [
+   "http://google.co.uk",
+   "KanBan-Wall.png",
+   "http://capitalismmagazine.com",
+   "gaga-eye.png",
+   "http://www.slashdot.org",
+   "gaga-telephone-bandana.png",
+   "http://www.ft.com",
+   "gaga-telephone-hot-rod.png",
+   "it-crowd-1280x854.png",
+   "scotland-bass-rock-rainbow-1.png",
+
+   "-"
+];
+URLs.pop();
+
+var Effects = {
+   'none': {},
+   'blind': {},
+   'bounce': {},
+   'clip': {},
+   'drop': {},
+   'explode': {},
+   'fold': { size: 200 },
+   'fold2': { size: 200, horizFirst: true },
+   'highlight': {},
+   'puff': {},
+//   'pulsate': {},
+   'scale': { percent: 0 },
+   'shake': {},
+//   'size': { to: { width: 0, height: 200 } },
+   'slide': {},
+
+   '-': []
+};
+
+function initEffects() {
+   var key;
+   for (key in Effects) {
+      if (Effects.hasOwnProperty(key) && key !== '-') {
+         Effects['-'].push(key);
+      }
+   }
+}
+
+function choose() {
+   return URLs[idx++ % URLs.length];
+}
+
+function chooseEffect() {
+   var effect, TheEffect = {};
+   effect = Effects['-'][Math.floor(Math.random() * Effects['-'].length)];
+
+//   effect = 'fold2';
+
+   TheEffect.name = effect;
+   TheEffect.Options = Effects[effect];
+   effect = effect.replace(/\d+$/, '');
+   TheEffect.effect = effect;
+   return TheEffect;
+}
+
+function loadContent(id) {
+   jQuery('#' + id).attr('src', choose());
+}
+
+function onTopPanelHidden() {
+   if (!stop) {
+      setTimeout(function () {
+         showTopPanel();
+      }, refreshTime);
+   }
+   loadContent('img1');
+}
+
+function onBottomPanelHidden() {
+   if (!stop) {
+      setTimeout(function () {
+         hideTopPanel();
+      }, refreshTime);
+   }
+   loadContent('img2');
+}
+
+function hideTopPanel() {
+   var Options, TheEffect = chooseEffect();
+   Options = TheEffect.Options;
+   if (typeof Options.percent !== 'undefined') {
+      Options.percent = 0;
+   }
+   if (TheEffect.effect === 'none') {
+      jQuery('#panel1').hide();
+      onTopPanelHidden();
+   } else {
+      jQuery('#panel1').hide(TheEffect.effect, Options, effectTime, onTopPanelHidden);
+   }
+}
+
+function showTopPanel() {
+   var Options, TheEffect = chooseEffect();
+   Options = TheEffect.Options;
+   if (typeof Options.percent !== 'undefined') {
+      Options.percent = 100;
+   }
+   if (TheEffect.effect === 'none') {
+      jQuery('#panel1').show();
+      onBottomPanelHidden();
+   } else {
+      jQuery('#panel1').show(TheEffect.effect, Options, effectTime, onBottomPanelHidden);
+   }
+}
+
+function freeze() {
+   stop = true;
+}
+
+function thaw() {
+   stop = false;
+   jQuery('#panel1').show();
+   setTimeout(function () {
+      hideTopPanel();
+   }, refreshTime);
+}
+
+jQuery(document).ready(function () {
+   initEffects();
+   jQuery('body').click(function () { freeze(); });
+   setTimeout(function () {
+      hideTopPanel();
+   }, refreshTime);
+});
+
+</script>
+
+</body>
+</html>
+
