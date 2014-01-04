@@ -2,35 +2,29 @@
 # could do host detection or just hard code values for local setup
 
 SCRWIDTH=1920
-#SCRWIDTH=1280
-#SCRWIDTH=1024
-#SCRWIDTH=1360
+SCRHEIGHT=1080
 
-SCRHEIGHT=1200
-#SCRHEIGHT=1024
-#SCRHEIGHT=768
+# full path to location of this BigScreen project
+BIGSCREEN=/cygdrive/d/d/s/github/BigScreen
 
-BIGSCREEN=/cygdrive/c/sandbox/advertising/misc/big-screen
-DROPBOX=$BIGSCREEN/Dropbox
+# full path to location of image files to scan for
+DROPBOX=$BIGSCREEN/Dropbox/Photos
 
+# unix like systems use:
 BIGSCREENURL=file://$BIGSCREEN
-BIGSCREENURL="file://C|sandbox/advertising/misc/big-screen"
-
 DROPBOXURL=file://$DROPBOX
-DROPBOXURL="file://C|sandbox/AdsMetricsDropbox"
 
+# windows systems use:
+BIGSCREENURL="file://D|d/s/github/BigScreen"
+DROPBOXURL="file://D|d/Dropbos/Photos/Wallpaper"
+
+# set the browser to use unix/win/mac
 BROWSER=chromium-browser
+BROWSER="$BIGSCREEN/macbrowser.sh"
 BROWSER="/cygdrive/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
-if [ `hostname` == 'FT-MW4297' ]; then
-   echo Mac settings for Brent
-
-   BIGSCREEN=/Users/brent.cowgill/sandbox/advertising/misc/big-screen
-   DROPBOX=/Users/brent.cowgill/Dropbox/Photos/WorkSafe
-   BIGSCREENURL=file://$BIGSCREEN
-   DROPBOXURL=file://$DROPBOX
-   BROWSER="open -a 'Google Chrome'"
-   BROWSER="$BIGSCREEN/macbrowser.sh"
-fi
-
 export BIGSCREEN BIGSCREENURL DROPBOX DROPBOXURL BROWSER SCRWIDTH SCRHEIGHT
+
+[ ! -d "$BIGSCREEN" ] && echo Directory BIGSCREEN set incorrectly: $BIGSCREEN does not exist
+[ ! -d "$DROPBOX" ] && echo Directory DROPBOX set incorrectly: $DROPBOX does not exist
+[ ! -x "$BROWSER" ] && echo Browser BROWSER set incorrectly: $BROWSER not executable
