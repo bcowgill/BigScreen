@@ -19,7 +19,7 @@ cat auto-pics.js
 
 # Update settings.js with dropbox location and screen size
 echo Updating settings.js with DROPBOX/WIDTH/HEIGHT from settings.sh
-perl -e "print qq[var SETTINGS = {\n   'DROPBOX': '$DROPBOXURL',\n   'WIDTH': $SCRWIDTH,\n   'HEIGHT': $SCRHEIGHT,\n   '-': '-'\n};\n]" \
+perl -e "print qq[var SETTINGS = {\n   'REFRESHTIME': '$REFRESHTIME',\n   'EFFECTTIME': '$EFFECTTIME',\n   'DROPBOX': '$DROPBOXURL',\n   'WIDTH': $SCRWIDTH,\n   'HEIGHT': $SCRHEIGHT,\n   '-': '-'\n};\n]" \
  > settings.js
 cat settings.js
 

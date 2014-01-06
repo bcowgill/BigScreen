@@ -9,6 +9,12 @@
 SCRWIDTH=1920
 SCRHEIGHT=1080
 
+# default time between slide change (millisecs) and special effect
+REFRESHTIME=30000
+EFFECTTIME=1000
+REFRESHTIME=5000
+EFFECTTIME=300
+
 # full path to location of this BigScreen project
 BIGSCREEN=/cygdrive/d/d/s/github/BigScreen
 

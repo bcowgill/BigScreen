@@ -5,12 +5,12 @@
 /*global
    AutoPics, Effects, FTURLs, Math, NO_INTERNET_IMAGE, SETTINGS, URLs,
    artURLs: true, changeContent, choose, chooseContent, chooseEffect, chooseRandom,
-   document, effectTime, fixedEffect, freeze, hideTopPanel, idx, initEffects,
+   document, fixedEffect, freeze, hideTopPanel, idx, initEffects,
    initURLs, jQuery, loadContent, miscURLs, noInternet, onBottomPanelHidden,
-   onTopPanelHidden, refreshTime, setTimeout, showTopPanel, stop, thaw
+   onTopPanelHidden, setTimeout, showTopPanel, stop, thaw
 */
 /*properties
-    '-', DROPBOX, HEIGHT, Options, WIDTH, blind, bounce, click, clip, drop,
+    '-', REFRESHTIME, EFFECTTIME, DROPBOX, HEIGHT, Options, WIDTH, blind, bounce, click, clip, drop,
     effect, explode, floor, fold, fold2, hasOwnProperty, hide, highlight,
     horizFirst, html, length, match, name, none, percent, pop, puff, push,
     random, ready, replace, scale, shake, show, size, slide
@@ -20,9 +20,6 @@
 
 var idx = 0;
 var stop = false;
-var effectTime = 1000;
-var refreshTime = 30000;
-// refreshTime = 5000;
 
 // We will add the dropbox location later to this string in initURLs()
 var NO_INTERNET_IMAGE = "/Photos/big-screen/HIDDEN/got-internet.png";
@@ -251,7 +248,7 @@ function onTopPanelHidden() {
    if (!stop) {
       setTimeout(function () {
          showTopPanel();
-      }, refreshTime);
+      }, SETTINGS.REFRESHTIME);
    }
    loadContent('img1');
 }
@@ -260,7 +257,7 @@ function onBottomPanelHidden() {
    if (!stop) {
       setTimeout(function () {
          hideTopPanel();
-      }, refreshTime);
+      }, SETTINGS.REFRESHTIME);
    }
    loadContent('img2');
 }
@@ -275,7 +272,7 @@ function hideTopPanel() {
       jQuery('#panel1').hide();
       onTopPanelHidden();
    } else {
-      jQuery('#panel1').hide(TheEffect.effect, Options, effectTime, onTopPanelHidden);
+      jQuery('#panel1').hide(TheEffect.effect, Options, SETTINGS.EFFECTTIME, onTopPanelHidden);
    }
 }
 
@@ -289,7 +286,7 @@ function showTopPanel() {
       jQuery('#panel1').show();
       onBottomPanelHidden();
    } else {
-      jQuery('#panel1').show(TheEffect.effect, Options, effectTime, onBottomPanelHidden);
+      jQuery('#panel1').show(TheEffect.effect, Options, SETTINGS.EFFECTTIME, onBottomPanelHidden);
    }
 }
 
@@ -302,7 +299,7 @@ function thaw() {
    jQuery('#panel1').show();
    setTimeout(function () {
       hideTopPanel();
-   }, refreshTime);
+   }, SETTINGS.REFRESHTIME);
 }
 
 function changeContent() {

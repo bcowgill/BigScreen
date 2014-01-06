@@ -7,6 +7,6 @@ killall "$BROWSER"
 sleep 5
 
 "$BROWSER" "$BIGSCREENURL/bigscreen.html" \
-http://www.google.com
-&
+http://www.google.com \
+> bigscreen-browser.log 2>&1 &
 
