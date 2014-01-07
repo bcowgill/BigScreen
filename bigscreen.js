@@ -25,36 +25,14 @@ var stop = false;
 var NO_INTERNET_IMAGE = "/Photos/big-screen/HIDDEN/got-internet.png";
 
 var URLs = [
-   // Teads Inread video in article dashboard requires login
-//   'http://manager.teads.tv/homepage',
-   // Ads Inread video stats splunk monitor page
-//   'http://splunk.internal.ft.com/en-US/app/search/ads_inread_video_24hr_stats',
-//   'http://splunk.internal.ft.com/en-US/app/search/ads_inread_video_stats',
-
-   // Gathercole's IT Predictions for 2013
-//   'https://www.google.com/moderator/#1/e=201801&t=201801.40',
-
-//   'http://ft-wd20104.osb.ft.com:8081/env/',
-//   'http://ahp.svc.ft.com/tasks/reporting/ReportingTasks/runReportStep2?report_id=107&basicAuthRequired=true&report_template_id=42&ftWorkFlowIds=211:277&run-report=Run',
+   //'http://', // your build screen here
    'COMPANY',
 
-//   'http://cranmer.ft.com/QUnitChainer/0-monitor.html',
-
-   // Site intelligence gives errors every morning
-//   'https://realtime.site-intelligence.co.uk/financialtimes/dashboard.html',
-
-   // AHP site starts failing with an error button
-   //'http://ahp.svc.ft.com/tasks/reporting/ReportingTasks/runReportStep2?report_id=107&basicAuthRequired=true&report_template_id=42&ftWorkFlowIds=262:274:257:241:204&run-report=Run',
+   //'http://', // perhaps your code coverage here?
 
    'MISC',
 
-// Google test calendar puts up an alert every day stopping the page flow
-//   'https://www.google.com/calendar/render?cid=dmFvb2R2MmZjM290Y2htMThqNnBwOGNwajRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&invEmailKey=brent.cowgill@ft.com:d0fdcc666ac9153743bd8de109c6c13bdb06bece',
-   // Doubleclick Quality of Service monitor breaks out of the iframe and hogs the display. too bad because it looks good.
-   //'http://qos.doubleclick.net/default.htm',
-
-   // Site intelligence gives errors every morning
-   //'https://realtime.site-intelligence.co.uk/financialtimes/itdashboard.html',
+   //'http://', // perhaps latest sales figures?
 
    'ART',
 
@@ -63,6 +41,7 @@ var URLs = [
 ];
 URLs.pop();
 
+// Your company website pages to check
 var companyURLs = [
    'http://www.ontology.com',
    'http://www.ontology.com/solutions/support-and-training/',
