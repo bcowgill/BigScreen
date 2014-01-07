@@ -25,16 +25,22 @@ var stop = false;
 var NO_INTERNET_IMAGE = "/Photos/big-screen/HIDDEN/got-internet.png";
 
 var URLs = [
-   //'http://', // your build screen here
+   // your build screen here
+   'http://blog.stevienova.com/wp-content/uploads/2010/10/screen_01b.png',
    'COMPANY',
 
-   //'http://', // perhaps your code coverage here?
+   // perhaps your team's open defect chart here?
+   'http://blogs.atlassian.com/wp-content/uploads/image2013-11-8-11-38-57-600x359.png', 
 
    'MISC',
 
-   //'http://', // perhaps latest sales figures?
+   // perhaps your burndown/or kanban cumulative flow chart here?
+   'https://confluence.atlassian.com/download/attachments/391087259/Kanban%20CFD.png?version=1&modificationDate=1318289029259&api=v2', 
 
    'ART',
+
+   // perhaps your team's scrum/kanban wall or code coverage? 
+   'http://www.targetprocess.com/userguides/guides/user-guide/kanban_board.png',
 
    // Marks the end of array to prevent comma syntax errors, is skipped when processing
    '-'
