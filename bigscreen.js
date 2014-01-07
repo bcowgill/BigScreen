@@ -3,7 +3,7 @@
 
 /*jslint browser: true, plusplus: true, maxerr: 1000, indent: 3 */
 /*global
-   AutoPics, Effects, FTURLs, Math, NO_INTERNET_IMAGE, SETTINGS, URLs,
+   AutoPics, Effects, companyURLs, Math, NO_INTERNET_IMAGE, SETTINGS, URLs,
    artURLs: true, changeContent, choose, chooseContent, chooseEffect, chooseRandom,
    document, fixedEffect, freeze, hideTopPanel, idx, initEffects,
    initURLs, jQuery, loadContent, miscURLs, noInternet, onBottomPanelHidden,
@@ -36,7 +36,7 @@ var URLs = [
 
 //   'http://ft-wd20104.osb.ft.com:8081/env/',
 //   'http://ahp.svc.ft.com/tasks/reporting/ReportingTasks/runReportStep2?report_id=107&basicAuthRequired=true&report_template_id=42&ftWorkFlowIds=211:277&run-report=Run',
-   'FT',
+   'COMPANY',
 
 //   'http://cranmer.ft.com/QUnitChainer/0-monitor.html',
 
@@ -63,86 +63,28 @@ var URLs = [
 ];
 URLs.pop();
 
-var FTURLs = [
-   'http://www.ft.com',
-   'http://www.ft.com/intl/news-feed',
-   'http://markets.ft.com/tearsheets/performance.asp?s=572009',
-   'http://video.ft.com/',
-   'http://www.ft.com/interactive',
-   'http://www.ft.com/comment/blogs',
-   'http://www.ft.com/alphaville',
-   'http://markets.ft.com/tearsheets/performance.asp?s=PSON.GB%3APLU&vsc_appId=ts&ftsite=FTCOM&searchtype=equity&searchOption=equity',
-   'http://blogs.ft.com/beyond-brics/',
-   'http://www.ft.com/global-economy',
-   'http://www.ft.com/special-reports',
-   'http://markets.ft.com/research/Markets/Commodities',
-   'http://www.ft.com/indepth',
-   'http://www.ft.com/world',
-   'http://www.ft.com/world/uk',
-   'http://markets.ft.com/tearsheets/performance.asp?s=599362',
-   'http://www.ft.com/world/uk/business',
-   //'http://www.ft.com/london-2012-olympics',
-   'http://www.ft.com/world/africa',
-   'http://www.ft.com/world/asiapacific',
-   'http://www.ft.com/world/asiapacific/china',
-   'http://www.ft.com/world/asiapacific/india',
-   'http://www.ft.com/world/asiapacific/japan',
-   'http://markets.ft.com/tearsheets/performance.asp?s=568838',
-   'http://www.ft.com/world/asiapacific/afghanistan',
-   'http://www.ft.com/world/asiapacific/pakistan',
-   'http://www.ft.com/world/europe',
-   'http://www.ft.com/world/europe/brussels',
-   'http://www.ft.com/world/us',
-   'http://www.ft.com/companies',
-   'http://www.ft.com/technology/science',
-   'http://www.ft.com/ftfm',
-   'http://markets.ft.com/research/Markets/Currencies',
-   'http://www.ft.com/lex',
-   'http://www.ft.com/comment',
-   'http://www.ft.com/management',
-   'http://www.ft.com/personal-finance',
-   'http://howtospendit.ft.com/',
-   'http://www.ft.com/intl/magazine',
-   'http://www.ft.com/intl/arts',
-   'http://www.ft.com/intl/arts/food',
-   'http://www.ft.com/intl/house-home',
-   'http://www.ft.com/intl/arts/style',
-   'http://www.ft.com/intl/arts/books',
-   'http://www.ft.com/intl/life-arts/pursuits',
-   'http://www.ft.com/intl/travel',
-   'http://www.ft.com/intl/life-arts/columnists',
+var companyURLs = [
+   'http://www.ontology.com',
+   'http://www.ontology.com/solutions/support-and-training/',
+   'http://www.ontology.com/news-and-media/?tag=news',
 
    // Marks the end of array to prevent comma syntax errors, is skipped when processing
    '-'
 ];
-FTURLs.pop();
+companyURLs.pop();
 
 var miscURLs = [
    'http://apod.nasa.gov/apod/astropix.html',
    'http://google.co.uk',
-   //'http://bitcoincharts.com/markets/',
-   //"https://docs.google.com/spreadsheet/oimg?key=0Ar5rWtMmPMitdEVKRElfUm44bTNPWTlsaDJDbWxXd3c&oid=10&zx=uuu9skvnyj3t",
-   //"https://docs.google.com/spreadsheet/oimg?key=0Ar5rWtMmPMitdEVKRElfUm44bTNPWTlsaDJDbWxXd3c&oid=18&zx=wrg20gj9um9z",
-   //"https://docs.google.com/spreadsheet/oimg?key=0Ar5rWtMmPMitdEVKRElfUm44bTNPWTlsaDJDbWxXd3c&oid=15&zx=ua9zcgo0kz31",
-   //"https://docs.google.com/spreadsheet/oimg?key=0Ar5rWtMmPMitdEVKRElfUm44bTNPWTlsaDJDbWxXd3c&oid=17&zx=f3jya4r0mgjx",
+   'http://bitcoincharts.com/markets/',
 
-   // intranet now redirects to neo which needs a login.
-   //"http://ftintranet.com",
    "http://slashdot.org/",
    "http://www.theregister.co.uk/software/",
    "http://www.wired.com/",
-   //"http://www.deathclock.com/dw.cfm?Day=19&Month=7&Year=1967&Sex=Male&Mode=Normal&bmi=-25&smoker=0",
-
-   //"http://sync.in/BlfzqDhX3d", // ads team sync
-   //"http://sync.in/xcBrWB8lJo", // big screen sync
+   "http://www.deathclock.com/dw.cfm?Day=1&Month=1&Year=1987&Sex=Male&Mode=Normal&bmi=-25&smoker=0",
 
    "http://itkanban.com",
 
-   // Personal Pomodoro Chart - inaccessible publicly despite what google says about published pages.
-   //"https://docs.google.com/a/ft.com/spreadsheet/oimg?key=0AhWXaqHa_7nEdHplZnpmSkJpdlo3MVRvYTViQVRJaXc&oid=2&zx=4hyid9h6jhv6",
-
-   // Tennis scores
-   // 'http://m.bbc.co.uk/sport/tennis/21092816?r=1#refresh',
    // Marks the end of array to prevent comma syntax errors, is skipped when processing
    '-'
 ];
@@ -174,7 +116,7 @@ var Effects = {
 function initURLs() {
    NO_INTERNET_IMAGE = SETTINGS.DROPBOX + NO_INTERNET_IMAGE;
    artURLs = AutoPics;
-   noInternet(FTURLs);
+   noInternet(companyURLs);
    noInternet(miscURLs);
    noInternet(artURLs);
 }
@@ -210,8 +152,8 @@ function chooseRandom(rArray) {
 
 function chooseContent() {
    var URL = choose(URLs);
-   if (URL === 'FT') {
-      URL = chooseRandom(FTURLs);
+   if (URL === 'COMPANY') {
+      URL = chooseRandom(companyURLs);
    } else if (URL === 'ART') {
       URL = chooseRandom(artURLs);
    } else if (URL === 'MISC') {
@@ -304,8 +246,8 @@ function thaw() {
 
 function changeContent() {
    var html = '', URL = URLs[idx++ % URLs.length], rNode = jQuery('#statusDiv');
-   if (URL === 'FT') {
-      URL = choose(FTURLs);
+   if (URL === 'COMPANY') {
+      URL = choose(companyURLs);
    } else if (URL === 'ART') {
       URL = choose(artURLs);
    } else if (URL === 'MISC') {
