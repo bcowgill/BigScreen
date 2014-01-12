@@ -6,11 +6,11 @@
    AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true
 */
 /*properties
-    '-', CHANGETIME, DROPBOX, EFFECTTIME, Options, REFRESHTIME, blind, bounce,
-    click, clip, drop, effect, explode, floor, fold, fold2, hasOwnProperty, hide,
-    highlight, horizFirst, html, length, location, match, name, none, percent,
-    pop, puff, push, random, ready, reload, replace, scale, shake, show, size,
-    slide
+    '-', CHANGETIME, DROPBOX, EFFECTTIME, Options, REFRESHTIME, SHOWURL,
+    addClass, blind, bounce, click, clip, drop, effect, explode, floor, fold,
+    fold2, hasOwnProperty, hide, highlight, horizFirst, html, length, location,
+    match, name, none, percent, pop, puff, push, random, ready, reload,
+    removeClass, replace, scale, shake, show, size, slide
 */
 
 "use strict";
@@ -169,8 +169,7 @@ function setFloatURL(url) {
       rFloat.html('<code><b>' + url + '</b></code>');
       if (SETTINGS.SHOWURL) {
          rFloat.removeClass('hidden');
-      }
-      else {
+      } else {
          rFloat.addClass('hidden');
       }
    }
