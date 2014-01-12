@@ -19,7 +19,7 @@ cat auto-pics.js
 
 # Update settings.js with dropbox location and screen size
 echo Updating settings.js with DROPBOX/WIDTH/HEIGHT from settings.sh
-perl -e "print qq[var SETTINGS = {\n   'REFRESHTIME': '$REFRESHTIME',\n   'CHANGETIME': '$CHANGETIME',\n   'EFFECTTIME': '$EFFECTTIME',\n   'DROPBOX': '$DROPBOXURL',\n   'WIDTH': $SCRWIDTH,\n   'HEIGHT': $SCRHEIGHT,\n   'SHOWURL': $SHOWURL,\n   'NOINTERNET': $NOINTERNET,\n   'NOINTERNETIMAGE': '$NOINTERNETIMAGE',\n   '-': '-'\n};\n]" \
+perl -e "print qq[var SETTINGS = {\n   'REFRESHTIME': '$REFRESHTIME',\n   'CHANGETIME': '$CHANGETIME',\n   'EFFECTTIME': '$EFFECTTIME',\n   'DROPBOX': '$DROPBOXURL',\n   'WIDTH': $SCRWIDTH,\n   'HEIGHT': $SCRHEIGHT,\n   'SHOWURL': $SHOWURL,\n   'NOINTERNET': $NOINTERNET,\n   'NOINTERNETIMAGE': '$NOINTERNETIMAGE',\n   'STARTIMAGE': '$STARTIMAGE',\n   '-': '-'\n};\n]" \
  > settings.js
 cat settings.js
 
@@ -30,5 +30,5 @@ grep -E 'WIDTH|HEIGHT' css/style.css
 
 # Update bigscreen.html with dropbox location
 echo Updating bigscreen.html with DROPBOX values on hard coded images
-perl -i.bak -pne "s{src='[^']+/$DROPBOXSUBDIR}{src='$DROPBOXURL}xmsg" bigscreen.html
+perl -i.bak -pne "s{src='[^']+/$DROPBOXSUBDIR[^']+'}{src='$DROPBOXURL/$STARTIMAGE'}xmsg" bigscreen.html
 

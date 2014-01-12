@@ -8,5 +8,6 @@ var SETTINGS = {
    'SHOWURL': false,
    'NOINTERNET': false,
    'NOINTERNETIMAGE': 'HIDDEN/no-internet.jpg',
+   'STARTIMAGE': 'wallpaper.png',
    '-': '-'
 };

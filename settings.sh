@@ -31,6 +31,7 @@ BIGSCREEN=/cygdrive/d/d/s/github/BigScreen
 # full path to location of image files to scan for
 DROPBOX=$BIGSCREEN/Dropbox
 DROPBOXSUBDIR=Photos/Wallpaper
+STARTIMAGE="wallpaper.png"
 
 # show the url of the currently viewed slide - for debugging when a slide shows problems
 SHOWURL=false
@@ -59,4 +60,5 @@ export BIGSCREEN BIGSCREENURL DROPBOX DROPBOXSUBIR DROPBOXURL BROWSER SCRWIDTH S
 [ ! -d "$DROPBOX" ] && echo Directory DROPBOX set incorrectly: $DROPBOX does not exist
 [ ! -d "$DROPBOX/$DROPBOXSUBDIR" ] && echo Directory DROPBOXSUBDIR set incorrectly: $DROPBOX/$DROPBOXSUBDIR does not exist
 [ ! -f "$DROPBOX/$DROPBOXSUBDIR/$NOINTERNETIMAGE" ] && echo Image NOINTERNETIMAGE set incorrectly: $DROPBOX/$DROPBOXSUBDIR/$NOINTERNETIMAGE does not exist
+[ ! -f "$DROPBOX/$DROPBOXSUBDIR/$STARTIMAGE" ] && echo Image STARTIMAGE set incorrectly: $DROPBOX/$DROPBOXSUBDIR/$STARTIMAGE does not exist
 [ ! -x "$BROWSER" ] && echo Browser BROWSER set incorrectly: $BROWSER not executable
