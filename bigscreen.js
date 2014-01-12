@@ -3,17 +3,14 @@
 
 /*jslint browser: true, plusplus: true, maxerr: 1000, indent: 3 */
 /*global
-   AutoPics, Effects, companyURLs, Math, NO_INTERNET_IMAGE, SETTINGS, URLs,
-   artURLs: true, changeContent, choose, chooseContent, chooseEffect, chooseRandom,
-   document, fixedEffect, freeze, hideTopPanel, idx, initEffects,
-   initURLs, jQuery, loadContent, miscURLs, noInternet, onBottomPanelHidden,
-   onTopPanelHidden, setTimeout, showTopPanel, stop, thaw
+   AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true
 */
 /*properties
-    '-', REFRESHTIME, CHANGETIME, EFFECTTIME, DROPBOX, HEIGHT, Options, WIDTH, blind, bounce, click, clip, drop,
-    effect, explode, floor, fold, fold2, hasOwnProperty, hide, highlight,
-    horizFirst, html, length, match, name, none, percent, pop, puff, push,
-    random, ready, replace, scale, shake, show, size, slide
+    '-', CHANGETIME, DROPBOX, EFFECTTIME, Options, REFRESHTIME, blind, bounce,
+    click, clip, drop, effect, explode, floor, fold, fold2, hasOwnProperty, hide,
+    highlight, horizFirst, html, length, location, match, name, none, percent,
+    pop, puff, push, random, ready, reload, replace, scale, shake, show, size,
+    slide
 */
 
 "use strict";
@@ -99,23 +96,23 @@ var Effects = {
    '-': []
 };
 
+function noInternet(rArray) {
+   var idxLoop;
+   return; // disable this line to simply show the NO INTERNET image
+   for (idxLoop = rArray.length - 1; idxLoop >= 0; --idxLoop) {
+      if (rArray[idxLoop].match(/^http/)) {
+         rArray[idxLoop] = NO_INTERNET_IMAGE;
+      }
+   }
+   //alert(rArray.join("\n"));
+}
+
 function initURLs() {
    NO_INTERNET_IMAGE = SETTINGS.DROPBOX + NO_INTERNET_IMAGE;
    artURLs = AutoPics;
    noInternet(companyURLs);
    noInternet(miscURLs);
    noInternet(artURLs);
-}
-
-function noInternet(rArray) {
-   var idx;
-   return; // disable this line to simply show the NO INTERNET image
-   for (idx = rArray.length - 1; idx >= 0; --idx) {
-      if (rArray[idx].match(/^http/)) {
-         rArray[idx] = NO_INTERNET_IMAGE;
-      }
-   }
-   //alert(rArray.join("\n"));
 }
 
 function initEffects() {
@@ -169,21 +166,13 @@ function loadContent(idImg) {
    var html = '', URL = chooseContent(), idPanel = idImg.replace(/img/, 'panel'), rNode = jQuery('#' + idPanel);
    if (URL.match(/\.(jpg|gif|png)$/i)) {
       html = '<' + 'img id="' + idImg + '" src="' + URL + '" alt="' + URL + '"/>';
-      //html = "<" + "img id='" + idImg + "' width='" + SETTINGS.WIDTH + "' height='" + SETTINGS.HEIGHT + "' src='" + URL + "'\/>";
+//      html = "<" + "img id='" + idImg + "' width='" + SETTINGS.WIDTH + "' height='" + SETTINGS.HEIGHT + "' src='" + URL + "'\/>";
 //      html = "<" + "img id='" + idImg + "' width='" + SETTINGS.WIDTH + "' height='" + SETTINGS.HEIGHT + "' src='" + URL + '" alt="' + URL + "'\/>";
+
    } else {
       html = '<' + 'iframe id="' + idImg + '" src="' + URL + '"><\/iframe>';
    }
    rNode.html(html);
-}
-
-function onTopPanelHidden() {
-   if (!stop) {
-      setTimeout(function () {
-         showTopPanel();
-      }, SETTINGS.CHANGETIME);
-   }
-   loadContent('img1');
 }
 
 function onBottomPanelHidden() {
@@ -193,20 +182,6 @@ function onBottomPanelHidden() {
       }, SETTINGS.CHANGETIME);
    }
    loadContent('img2');
-}
-
-function hideTopPanel() {
-   var Options, TheEffect = chooseEffect();
-   Options = TheEffect.Options;
-   if (Options.percent !== undefined) {
-      Options.percent = 0;
-   }
-   if (TheEffect.effect === 'none') {
-      jQuery('#panel1').hide();
-      onTopPanelHidden();
-   } else {
-      jQuery('#panel1').hide(TheEffect.effect, Options, SETTINGS.EFFECTTIME, onTopPanelHidden);
-   }
 }
 
 function showTopPanel() {
@@ -220,6 +195,29 @@ function showTopPanel() {
       onBottomPanelHidden();
    } else {
       jQuery('#panel1').show(TheEffect.effect, Options, SETTINGS.EFFECTTIME, onBottomPanelHidden);
+   }
+}
+
+function onTopPanelHidden() {
+   if (!stop) {
+      setTimeout(function () {
+         showTopPanel();
+      }, SETTINGS.CHANGETIME);
+   }
+   loadContent('img1');
+}
+
+function hideTopPanel() {
+   var Options, TheEffect = chooseEffect();
+   Options = TheEffect.Options;
+   if (Options.percent !== undefined) {
+      Options.percent = 0;
+   }
+   if (TheEffect.effect === 'none') {
+      jQuery('#panel1').hide();
+      onTopPanelHidden();
+   } else {
+      jQuery('#panel1').hide(TheEffect.effect, Options, SETTINGS.EFFECTTIME, onTopPanelHidden);
    }
 }
 
