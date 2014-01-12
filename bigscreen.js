@@ -80,9 +80,11 @@ function initURLs() {
    noInternet(miscURLs);
    noInternet(artURLs);
 
-   log(miscURLs);
+   //log(miscURLs);
 }
 
+// Create an ordered array of effect names for random choosing
+// and store it in the '-' key of the effects object
 function initEffects() {
    var key;
    for (key in Effects) {
@@ -92,6 +94,7 @@ function initEffects() {
    }
 }
 
+// Choose one item after another from the array specified
 function choose(rArray) {
    var idxNow = idx++ % rArray.length;
    if (bReloadFlag && (0 === idxNow)) {
@@ -131,6 +134,7 @@ function chooseEffect() {
    return TheEffect;
 }
 
+// Show the URL of the slide content in the floating url bar
 function setFloatURL(URL) {
    var rFloat = jQuery('#floatURL');
    if (URL) {
@@ -143,6 +147,7 @@ function setFloatURL(URL) {
    }
 }
 
+// Load content into the currently hidden panel
 function loadContent(idImg) {
    var html = '', URL = chooseContent(), idPanel = idImg.replace(/img/, 'panel'), rNode = jQuery('#' + idPanel);
    if (URL.match(/\.(jpg|gif|png)$/i)) {
