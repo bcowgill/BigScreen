@@ -6,6 +6,9 @@
 #DISPLAY=:0
 #export DISPLAY
 
+# show the url of the currently viewed slide - for debugging when a slide shows problems
+SHOWURL=true
+
 SCRWIDTH=1920
 SCRHEIGHT=1080
 
@@ -19,7 +22,7 @@ let CHANGETIME=30*SECONDS
 let EFFECTTIME=1*SECONDS
 
 let REFRESHTIME=3*MINUTES
-let CHANGETIME=5*SECONDS
+let CHANGETIME=10*SECONDS
 let EFFECTTIME=300*MILLISEC
 
 # full path to location of this BigScreen project

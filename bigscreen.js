@@ -18,6 +18,7 @@
 var idx = 0;
 var stop = false;
 var bReloadFlag = false;
+var loadedURL;
 
 // We will add the dropbox location later to this string in initURLs()
 var NO_INTERNET_IMAGE = "/Photos/big-screen/HIDDEN/got-internet.png";
@@ -162,6 +163,19 @@ function chooseEffect() {
    return TheEffect;
 }
 
+function setFloatURL(url) {
+   var rFloat = jQuery('#floatURL');
+   if (url) {
+      rFloat.html('<code><b>' + url + '</b></code>');
+      if (SETTINGS.SHOWURL) {
+         rFloat.removeClass('hidden');
+      }
+      else {
+         rFloat.addClass('hidden');
+      }
+   }
+}
+
 function loadContent(idImg) {
    var html = '', URL = chooseContent(), idPanel = idImg.replace(/img/, 'panel'), rNode = jQuery('#' + idPanel);
    if (URL.match(/\.(jpg|gif|png)$/i)) {
@@ -172,11 +186,13 @@ function loadContent(idImg) {
    } else {
       html = '<' + 'iframe id="' + idImg + '" src="' + URL + '"><\/iframe>';
    }
+   loadedURL = URL;
    rNode.html(html);
 }
 
 function onBottomPanelHidden() {
    if (!stop) {
+      setFloatURL(loadedURL);
       setTimeout(function () {
          hideTopPanel();
       }, SETTINGS.CHANGETIME);
@@ -200,6 +216,7 @@ function showTopPanel() {
 
 function onTopPanelHidden() {
    if (!stop) {
+      setFloatURL(loadedURL);
       setTimeout(function () {
          showTopPanel();
       }, SETTINGS.CHANGETIME);
