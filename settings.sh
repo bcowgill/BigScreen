@@ -9,17 +9,18 @@
 SCRWIDTH=1920
 SCRHEIGHT=1080
 
-SECONDS=1000
+MILLISEC=1
+let SECONDS=1000*MILLISEC
 let MINUTES=60*SECONDS
 
-# default time between slide change (millisecs) and special effect
+# default time (millisecs) between page reload, slide change and special effect
 let REFRESHTIME=60*MINUTES
 let CHANGETIME=30*SECONDS
 let EFFECTTIME=1*SECONDS
 
-let REFRESHTIME=5*MINUTES
+let REFRESHTIME=3*MINUTES
 let CHANGETIME=5*SECONDS
-let EFFECTTIME=300
+let EFFECTTIME=300*MILLISEC
 
 # full path to location of this BigScreen project
 BIGSCREEN=/cygdrive/d/d/s/github/BigScreen

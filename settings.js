@@ -1,5 +1,5 @@
 var SETTINGS = {
-   'REFRESHTIME': '300000',
+   'REFRESHTIME': '180000',
    'CHANGETIME': '5000',
    'EFFECTTIME': '300',
    'DROPBOX': 'file://D|d/Dropbox/Photos/Wallpaper',
