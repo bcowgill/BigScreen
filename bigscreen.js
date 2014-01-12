@@ -163,10 +163,10 @@ function chooseEffect() {
    return TheEffect;
 }
 
-function setFloatURL(url) {
+function setFloatURL(URL) {
    var rFloat = jQuery('#floatURL');
-   if (url) {
-      rFloat.html('<code><b>' + url + '</b></code>');
+   if (URL) {
+      rFloat.html('<code><b>' + URL + '</b></code>');
       if (SETTINGS.SHOWURL) {
          rFloat.removeClass('hidden');
       } else {
@@ -237,10 +237,18 @@ function hideTopPanel() {
    }
 }
 
+// a debugging function to turn on showing of url
+function showURL() {
+   SETTINGS.SHOWURL = true;
+   setFloatURL(loadedURL);
+}
+
+// a debugging function to stop the panels changing
 function freeze() {
    stop = true;
 }
 
+// a debugging function to restart the panel changes
 function thaw() {
    stop = false;
    jQuery('#panel1').show();

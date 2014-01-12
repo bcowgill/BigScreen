@@ -7,7 +7,7 @@
 #export DISPLAY
 
 # show the url of the currently viewed slide - for debugging when a slide shows problems
-SHOWURL=true
+SHOWURL=false
 
 SCRWIDTH=1920
 SCRHEIGHT=1080
