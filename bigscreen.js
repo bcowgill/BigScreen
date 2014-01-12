@@ -6,7 +6,7 @@
    AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true
 */
 /*properties
-    '-', CHANGETIME, DROPBOX, EFFECTTIME, Options, REFRESHTIME, SHOWURL,
+    '-', CHANGETIME, DEFAULT, DROPBOX, EFFECTTIME, Options, REFRESHTIME, SHOWURL,
     addClass, blind, bounce, click, clip, drop, effect, explode, floor, fold,
     fold2, hasOwnProperty, hide, highlight, horizFirst, html, length, location,
     match, name, none, percent, pop, puff, push, random, ready, reload,
@@ -44,7 +44,6 @@ var URLs = [
    // Marks the end of array to prevent comma syntax errors, is skipped when processing
    '-'
 ];
-URLs.pop();
 
 // Your company website pages to check
 var companyURLs = [
@@ -55,7 +54,6 @@ var companyURLs = [
    // Marks the end of array to prevent comma syntax errors, is skipped when processing
    '-'
 ];
-companyURLs.pop();
 
 var miscURLs = [
    'http://apod.nasa.gov/apod/astropix.html',
@@ -72,7 +70,6 @@ var miscURLs = [
    // Marks the end of array to prevent comma syntax errors, is skipped when processing
    '-'
 ];
-miscURLs.pop();
 
 var artURLs = [];
 
@@ -97,9 +94,18 @@ var Effects = {
    '-': []
 };
 
+// pop off the final '-' entry of an array if it exists
+function popFinal(rArray) {
+   if ('-' === rArray[rArray.length - 1]) {
+      rArray.pop();
+   }
+}
+
 function noInternet(rArray) {
    var idxLoop;
+   popFinal(rArray);
    return; // disable this line to simply show the NO INTERNET image
+   console.log("using no internet image for everything: " + NO_INTERNET_IMAGE);
    for (idxLoop = rArray.length - 1; idxLoop >= 0; --idxLoop) {
       if (rArray[idxLoop].match(/^http/)) {
          rArray[idxLoop] = NO_INTERNET_IMAGE;
@@ -111,9 +117,12 @@ function noInternet(rArray) {
 function initURLs() {
    NO_INTERNET_IMAGE = SETTINGS.DROPBOX + NO_INTERNET_IMAGE;
    artURLs = AutoPics;
+
    noInternet(companyURLs);
    noInternet(miscURLs);
    noInternet(artURLs);
+
+   console.log(miscURLs);
 }
 
 function initEffects() {
@@ -147,6 +156,7 @@ function chooseContent() {
    } else if (URL === 'MISC') {
       URL = chooseRandom(miscURLs);
    }
+   console.log("using URL: " + URL);
    return URL;
 }
 
@@ -155,7 +165,7 @@ function chooseEffect() {
    effect = Effects['-'][Math.floor(Math.random() * Effects['-'].length)];
 
 //effect = fixedEffect;
-
+   console.log("using effect: " + effect);
    TheEffect.name = effect;
    TheEffect.Options = Effects[effect];
    effect = effect.replace(/\d+$/, '');
@@ -265,11 +275,19 @@ function setPageReloadTimeout() {
    }
 }
 
+function start() {
+   var timer = setInterval(function () {
+      console.log('Interval timer ' + timer);
+      if (!SETTINGS.DEFAULT && URLs) {
+         clearInterval(timer);
+         initURLs();
+         initEffects();
+         onBottomPanelHidden();
+         setPageReloadTimeout();
+      }
+   }, 300);
+}
+
 jQuery(document).ready(function () {
-   initURLs();
-   initEffects();
-   // try to stop the slides if you click on the page -- this seems not to work.
-   jQuery('body').click(function () { freeze(); });
-   onBottomPanelHidden();
-   setPageReloadTimeout();
+   start();
 });
