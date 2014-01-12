@@ -1,4 +1,5 @@
 # set up dirs and stuff here
+# use make-auto-pics.sh to inject these settings into other files
 # could do host detection or just hard code values for local setup
 
 # X11 display var if needed
@@ -6,6 +7,7 @@
 #DISPLAY=:0
 #export DISPLAY
 
+# The size of the screen you'll be running on. This will get pushed into the HTML/JS/CSS where needed
 SCRWIDTH=1920
 SCRHEIGHT=1080
 
@@ -18,15 +20,16 @@ let REFRESHTIME=60*MINUTES
 let CHANGETIME=30*SECONDS
 let EFFECTTIME=1*SECONDS
 
-let REFRESHTIME=3*MINUTES
-let CHANGETIME=10*SECONDS
-let EFFECTTIME=300*MILLISEC
+# settings when debugging
+#let REFRESHTIME=3*MINUTES
+#let CHANGETIME=10*SECONDS
+#let EFFECTTIME=300*MILLISEC
 
 # show the url of the currently viewed slide - for debugging when a slide shows problems
 SHOWURL=false
 
 # flag to use the no internet url for everything
-NOINTERNET=true
+NOINTERNET=false
 
 # full path to location of this BigScreen project
 BIGSCREEN=/cygdrive/d/d/s/github/BigScreen
