@@ -3,14 +3,15 @@
 
 /*jslint browser: true, plusplus: true, maxerr: 1000, indent: 3 */
 /*global
-   AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true
+   AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true, NO_INTERNET_IMAGE: true, URLs, companyURLs, miscURLs
 */
 /*properties
-    '-', CHANGETIME, DEFAULT, DROPBOX, EFFECTTIME, Options, REFRESHTIME, SHOWURL,
-    addClass, blind, bounce, click, clip, drop, effect, explode, floor, fold,
-    fold2, hasOwnProperty, hide, highlight, horizFirst, html, length, location,
-    match, name, none, percent, pop, puff, push, random, ready, reload,
-    removeClass, replace, scale, shake, show, size, slide
+    '-', CHANGETIME, DEFAULT, DROPBOX, EFFECTTIME, NOINTERNET, Options,
+    REFRESHTIME, SHOWURL, addClass, apply, blind, bounce, clip, console, drop,
+    effect, explode, floor, fold, fold2, hasOwnProperty, hide, highlight,
+    horizFirst, html, length, location, log, match, name, none, percent, pop,
+    puff, push, random, ready, reload, removeClass, replace, scale, shake, show,
+    size, slide
 */
 
 "use strict";
@@ -43,6 +44,12 @@ var Effects = {
    '-': []
 };
 
+function log() {
+   if (window.console && window.console.log) {
+      window.console.log.apply(window.console, arguments);
+   }
+}
+
 // pop off the final '-' entry of an array if it exists
 function popFinal(rArray) {
    if ('-' === rArray[rArray.length - 1]) {
@@ -55,7 +62,7 @@ function noInternet(rArray) {
    var idxLoop;
    popFinal(rArray);
    if (SETTINGS.NOINTERNET) {
-      console.log("using no internet image for everything: " + NO_INTERNET_IMAGE);
+      log("using no internet image for everything: " + NO_INTERNET_IMAGE);
       //alert(rArray.join("\n"));
       for (idxLoop = rArray.length - 1; idxLoop >= 0; --idxLoop) {
          if (rArray[idxLoop].match(/^http/)) {
@@ -73,7 +80,7 @@ function initURLs() {
    noInternet(miscURLs);
    noInternet(artURLs);
 
-   console.log(miscURLs);
+   log(miscURLs);
 }
 
 function initEffects() {
@@ -107,7 +114,7 @@ function chooseContent() {
    } else if (URL === 'MISC') {
       URL = chooseRandom(miscURLs);
    }
-   console.log("using URL: " + URL);
+   log("using URL: " + URL);
    return URL;
 }
 
@@ -116,7 +123,7 @@ function chooseEffect() {
    effect = Effects['-'][Math.floor(Math.random() * Effects['-'].length)];
 
 //effect = fixedEffect;
-   console.log("using effect: " + effect);
+   log("using effect: " + effect);
    TheEffect.name = effect;
    TheEffect.Options = Effects[effect];
    effect = effect.replace(/\d+$/, '');
@@ -228,7 +235,7 @@ function setPageReloadTimeout() {
 
 function start() {
    var timer = setInterval(function () {
-      console.log('Interval timer ' + timer);
+      log('Interval timer ' + timer);
       if (!SETTINGS.DEFAULT && URLs) {
          clearInterval(timer);
          initURLs();
