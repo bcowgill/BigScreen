@@ -6,9 +6,6 @@
 #DISPLAY=:0
 #export DISPLAY
 
-# show the url of the currently viewed slide - for debugging when a slide shows problems
-SHOWURL=false
-
 SCRWIDTH=1920
 SCRHEIGHT=1080
 
@@ -24,6 +21,12 @@ let EFFECTTIME=1*SECONDS
 let REFRESHTIME=3*MINUTES
 let CHANGETIME=10*SECONDS
 let EFFECTTIME=300*MILLISEC
+
+# show the url of the currently viewed slide - for debugging when a slide shows problems
+SHOWURL=false
+
+# flag to use the no internet url for everything
+NOINTERNET=true
 
 # full path to location of this BigScreen project
 BIGSCREEN=/cygdrive/d/d/s/github/BigScreen

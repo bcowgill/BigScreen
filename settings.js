@@ -6,5 +6,6 @@ var SETTINGS = {
    'WIDTH': 1920,
    'HEIGHT': 1080,
    'SHOWURL': false,
+   'NOINTERNET': true,
    '-': '-'
 };
