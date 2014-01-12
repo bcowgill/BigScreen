@@ -20,6 +20,7 @@
 
 var idx = 0;
 var stop = false;
+var bReloadFlag = false;
 
 // We will add the dropbox location later to this string in initURLs()
 var NO_INTERNET_IMAGE = "/Photos/big-screen/HIDDEN/got-internet.png";
@@ -35,7 +36,7 @@ var URLs = [
    'MISC',
 
    // perhaps your burndown/or kanban cumulative flow chart here?
-   'https://confluence.atlassian.com/download/attachments/391087259/Kanban%20CFD.png?version=1&modificationDate=1318289029259&api=v2',
+   'https://confluence.atlassian.com/download/attachments/391087259/Kanban%20CFD.png',
 
    'ART',
 
@@ -60,7 +61,7 @@ companyURLs.pop();
 
 var miscURLs = [
    'http://apod.nasa.gov/apod/astropix.html',
-   'http://google.co.uk',
+   //'http://google.com', refuses to load in a frame -- no checking for a new google doodle :-(
    'http://bitcoincharts.com/markets/',
 
    "http://slashdot.org/",
@@ -68,7 +69,7 @@ var miscURLs = [
    "http://www.wired.com/",
    "http://www.deathclock.com/dw.cfm?Day=1&Month=1&Year=1987&Sex=Male&Mode=Normal&bmi=-25&smoker=0",
 
-   "http://itkanban.com",
+   //"http://itkanban.com", refuses to load in a frame
 
    // Marks the end of array to prevent comma syntax errors, is skipped when processing
    '-'
@@ -127,7 +128,11 @@ function initEffects() {
 }
 
 function choose(rArray) {
-   return rArray[idx++ % rArray.length];
+   var idxNow = idx++ % rArray.length;
+   if (bReloadFlag && (0 === idxNow)) {
+      window.location.reload(true);
+   }
+   return rArray[idxNow];
 }
 
 function chooseRandom(rArray) {
@@ -165,6 +170,7 @@ function loadContent(idImg) {
    if (URL.match(/\.(jpg|gif|png)$/i)) {
       html = '<' + 'img id="' + idImg + '" src="' + URL + '" alt="' + URL + '"/>';
       //html = "<" + "img id='" + idImg + "' width='" + SETTINGS.WIDTH + "' height='" + SETTINGS.HEIGHT + "' src='" + URL + "'\/>";
+//      html = "<" + "img id='" + idImg + "' width='" + SETTINGS.WIDTH + "' height='" + SETTINGS.HEIGHT + "' src='" + URL + '" alt="' + URL + "'\/>";
    } else {
       html = '<' + 'iframe id="' + idImg + '" src="' + URL + '"><\/iframe>';
    }
@@ -229,22 +235,12 @@ function thaw() {
    }, SETTINGS.CHANGETIME);
 }
 
-function changeContent() {
-   var html = '', URL = URLs[idx++ % URLs.length], rNode = jQuery('#statusDiv');
-   if (URL === 'COMPANY') {
-      URL = choose(companyURLs);
-   } else if (URL === 'ART') {
-      URL = choose(artURLs);
-   } else if (URL === 'MISC') {
-      URL = choose(miscURLs);
+function setPageReloadTimeout() {
+   if (SETTINGS.REFRESHTIME) {
+      setTimeout(function () {
+         bReloadFlag = true;
+      }, SETTINGS.REFRESHTIME);
    }
-
-   if (URL.match(/\.(jpg|gif|png)$/i)) {
-      html = "<img width='" + SETTINGS.WIDTH + "' height='" + SETTINGS.HEIGHT + "' src='" + URL + "'/>";
-   } else {
-      html = '<iframe id="status" width="' + SETTINGS.WIDTH + '" height="' + SETTINGS.HEIGHT + '" src="' + URL + '">';
-   }
-   rNode.html(html);
 }
 
 jQuery(document).ready(function () {
@@ -253,4 +249,5 @@ jQuery(document).ready(function () {
    // try to stop the slides if you click on the page -- this seems not to work.
    jQuery('body').click(function () { freeze(); });
    onBottomPanelHidden();
+   setPageReloadTimeout();
 });
