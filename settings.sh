@@ -25,18 +25,19 @@ let EFFECTTIME=1*SECONDS
 #let CHANGETIME=10*SECONDS
 #let EFFECTTIME=300*MILLISEC
 
-# show the url of the currently viewed slide - for debugging when a slide shows problems
-SHOWURL=false
-
-# flag to use the no internet url for everything
-NOINTERNET=false
-
 # full path to location of this BigScreen project
 BIGSCREEN=/cygdrive/d/d/s/github/BigScreen
 
 # full path to location of image files to scan for
 DROPBOX=$BIGSCREEN/Dropbox
 DROPBOXSUBDIR=Photos/Wallpaper
+
+# show the url of the currently viewed slide - for debugging when a slide shows problems
+SHOWURL=false
+
+# flag to use the no internet image for everything
+NOINTERNET=false
+NOINTERNETIMAGE="HIDDEN/no-internet.jpg"
 
 # unix like systems use:
 BIGSCREENURL=file://$BIGSCREEN
@@ -57,4 +58,5 @@ export BIGSCREEN BIGSCREENURL DROPBOX DROPBOXSUBIR DROPBOXURL BROWSER SCRWIDTH S
 [ ! -d "$BIGSCREEN" ] && echo Directory BIGSCREEN set incorrectly: $BIGSCREEN does not exist
 [ ! -d "$DROPBOX" ] && echo Directory DROPBOX set incorrectly: $DROPBOX does not exist
 [ ! -d "$DROPBOX/$DROPBOXSUBDIR" ] && echo Directory DROPBOXSUBDIR set incorrectly: $DROPBOX/$DROPBOXSUBDIR does not exist
+[ ! -f "$DROPBOX/$DROPBOXSUBDIR/$NOINTERNETIMAGE" ] && echo Image NOINTERNETIMAGE set incorrectly: $DROPBOX/$DROPBOXSUBDIR/$NOINTERNETIMAGE does not exist
 [ ! -x "$BROWSER" ] && echo Browser BROWSER set incorrectly: $BROWSER not executable

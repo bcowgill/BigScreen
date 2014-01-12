@@ -1,9 +1,6 @@
 // urls.js
 // Configure your team/personal preferences for what URLs to show
 
-// We will add the dropbox location later to this string in initURLs()
-var NO_INTERNET_IMAGE = "/HIDDEN/no-internet.jpg";
-
 // Main list of URLs to loop over. COMANY, MISC and ART lists will be
 // chosen from where indicated within this list.
 var URLs = [

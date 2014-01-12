@@ -1,11 +1,12 @@
 var SETTINGS = {
-   'REFRESHTIME': '180000',
-   'CHANGETIME': '10000',
-   'EFFECTTIME': '300',
+   'REFRESHTIME': '3600000',
+   'CHANGETIME': '30000',
+   'EFFECTTIME': '1000',
    'DROPBOX': 'file://D|d/Dropbox/Photos/Wallpaper',
    'WIDTH': 1920,
    'HEIGHT': 1080,
    'SHOWURL': false,
-   'NOINTERNET': true,
+   'NOINTERNET': false,
+   'NOINTERNETIMAGE': 'HIDDEN/no-internet.jpg',
    '-': '-'
 };

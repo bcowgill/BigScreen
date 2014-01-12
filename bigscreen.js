@@ -3,10 +3,10 @@
 
 /*jslint browser: true, plusplus: true, maxerr: 1000, indent: 3 */
 /*global
-   AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true, NO_INTERNET_IMAGE: true, URLs, companyURLs, miscURLs
+   AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true, URLs, companyURLs, miscURLs
 */
 /*properties
-    '-', CHANGETIME, DEFAULT, DROPBOX, EFFECTTIME, NOINTERNET, Options,
+    '-', CHANGETIME, DEFAULT, DROPBOX, EFFECTTIME, NOINTERNET, NOINTERNETIMAGE, Options,
     REFRESHTIME, SHOWURL, addClass, apply, blind, bounce, clip, console, drop,
     effect, explode, floor, fold, fold2, hasOwnProperty, hide, highlight,
     horizFirst, html, length, location, log, match, name, none, percent, pop,
@@ -62,18 +62,19 @@ function noInternet(rArray) {
    var idxLoop;
    popFinal(rArray);
    if (SETTINGS.NOINTERNET) {
-      log("using no internet image for everything: " + NO_INTERNET_IMAGE);
+      log("using no internet image for everything: " + SETTINGS.NOINTERNETIMAGE);
       //alert(rArray.join("\n"));
       for (idxLoop = rArray.length - 1; idxLoop >= 0; --idxLoop) {
          if (rArray[idxLoop].match(/^http/)) {
-            rArray[idxLoop] = NO_INTERNET_IMAGE;
+            rArray[idxLoop] = SETTINGS.NOINTERNETIMAGE;
          }
       }
    }
 }
 
 function initURLs() {
-   NO_INTERNET_IMAGE = SETTINGS.DROPBOX + NO_INTERNET_IMAGE;
+   SETTINGS.NOINTERNETIMAGE = SETTINGS.DROPBOX + '/' + SETTINGS.NOINTERNETIMAGE;
+   log("SETTINGS", SETTINGS);
    artURLs = AutoPics;
 
    noInternet(companyURLs);
