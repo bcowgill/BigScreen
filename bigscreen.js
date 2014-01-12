@@ -10,7 +10,7 @@
    onTopPanelHidden, setTimeout, showTopPanel, stop, thaw
 */
 /*properties
-    '-', REFRESHTIME, EFFECTTIME, DROPBOX, HEIGHT, Options, WIDTH, blind, bounce, click, clip, drop,
+    '-', REFRESHTIME, CHANGETIME, EFFECTTIME, DROPBOX, HEIGHT, Options, WIDTH, blind, bounce, click, clip, drop,
     effect, explode, floor, fold, fold2, hasOwnProperty, hide, highlight,
     horizFirst, html, length, match, name, none, percent, pop, puff, push,
     random, ready, replace, scale, shake, show, size, slide
@@ -30,16 +30,16 @@ var URLs = [
    'COMPANY',
 
    // perhaps your team's open defect chart here?
-   'http://blogs.atlassian.com/wp-content/uploads/image2013-11-8-11-38-57-600x359.png', 
+   'http://blogs.atlassian.com/wp-content/uploads/image2013-11-8-11-38-57-600x359.png',
 
    'MISC',
 
    // perhaps your burndown/or kanban cumulative flow chart here?
-   'https://confluence.atlassian.com/download/attachments/391087259/Kanban%20CFD.png?version=1&modificationDate=1318289029259&api=v2', 
+   'https://confluence.atlassian.com/download/attachments/391087259/Kanban%20CFD.png?version=1&modificationDate=1318289029259&api=v2',
 
    'ART',
 
-   // perhaps your team's scrum/kanban wall or code coverage? 
+   // perhaps your team's scrum/kanban wall or code coverage?
    'http://www.targetprocess.com/userguides/guides/user-guide/kanban_board.png',
 
    // Marks the end of array to prevent comma syntax errors, is skipped when processing
@@ -175,7 +175,7 @@ function onTopPanelHidden() {
    if (!stop) {
       setTimeout(function () {
          showTopPanel();
-      }, SETTINGS.REFRESHTIME);
+      }, SETTINGS.CHANGETIME);
    }
    loadContent('img1');
 }
@@ -184,7 +184,7 @@ function onBottomPanelHidden() {
    if (!stop) {
       setTimeout(function () {
          hideTopPanel();
-      }, SETTINGS.REFRESHTIME);
+      }, SETTINGS.CHANGETIME);
    }
    loadContent('img2');
 }
@@ -226,7 +226,7 @@ function thaw() {
    jQuery('#panel1').show();
    setTimeout(function () {
       hideTopPanel();
-   }, SETTINGS.REFRESHTIME);
+   }, SETTINGS.CHANGETIME);
 }
 
 function changeContent() {

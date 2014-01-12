@@ -9,11 +9,17 @@
 SCRWIDTH=1920
 SCRHEIGHT=1080
 
+SECONDS=1000
+let MINUTES=60*SECONDS
+
 # default time between slide change (millisecs) and special effect
-REFRESHTIME=30000
-EFFECTTIME=1000
-REFRESHTIME=5000
-EFFECTTIME=300
+let REFRESHTIME=60*MINUTES
+let CHANGETIME=30*SECONDS
+let EFFECTTIME=1*SECONDS
+
+let REFRESHTIME=5*MINUTES
+let CHANGETIME=5*SECONDS
+let EFFECTTIME=300
 
 # full path to location of this BigScreen project
 BIGSCREEN=/cygdrive/d/d/s/github/BigScreen
@@ -34,6 +40,7 @@ DROPBOXURL="file://D|d/Dropbox/$DROPBOXSUBDIR"
 BROWSER=chromium-browser
 BROWSER="$BIGSCREEN/macbrowser.sh"
 BROWSER="/cygdrive/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+BROWSER="/cygdrive/c/Users/me/AppData/Local/Google/Chrome SxS/Application/chrome.exe"
 
 export BIGSCREEN BIGSCREENURL DROPBOX DROPBOXSUBIR DROPBOXURL BROWSER SCRWIDTH SCRHEIGHT
 
