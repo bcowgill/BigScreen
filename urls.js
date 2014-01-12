@@ -17,6 +17,8 @@ var URLs = [
    // perhaps your burndown/or kanban cumulative flow chart here?
    'https://confluence.atlassian.com/download/attachments/391087259/Kanban%20CFD.png',
 
+   // Art urls will be chosen from the images found in your configured Dropbox
+   // Files or directories with HIDDEN somewhere in their name will not be shown
    'ART',
 
    // perhaps your team's scrum/kanban wall or code coverage?
