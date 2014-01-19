@@ -164,8 +164,10 @@ function loadContent(idImg) {
 }
 
 function onBottomPanelHidden() {
+   debugger;
    if (!stop) {
       setFloatURL(loadedURL);
+      log("onBottomPanelHidden", SETTINGS.CHANGETME);
       setTimeout(function () {
          hideTopPanel();
       }, SETTINGS.CHANGETIME);
@@ -190,6 +192,7 @@ function showTopPanel() {
 function onTopPanelHidden() {
    if (!stop) {
       setFloatURL(loadedURL);
+      log("onTopPanelHidden", SETTINGS.CHANGETME);
       setTimeout(function () {
          showTopPanel();
       }, SETTINGS.CHANGETIME);
@@ -233,6 +236,7 @@ function thaw() {
 
 function setPageReloadTimeout() {
    if (SETTINGS.REFRESHTIME) {
+      log("setPageReloadTimeout", SETTINGS.REFRESHTME);
       setTimeout(function () {
          bReloadFlag = true;
       }, SETTINGS.REFRESHTIME);
@@ -243,7 +247,10 @@ function start() {
    var timer = setInterval(function () {
       log('Interval timer ' + timer);
       if (!SETTINGS.DEFAULT && URLs) {
-         clearInterval(timer);
+         if (timer) {
+            clearInterval(timer);
+            timer = 0;
+         }
          initURLs();
          initEffects();
          onBottomPanelHidden();
@@ -253,5 +260,6 @@ function start() {
 }
 
 jQuery(document).ready(function () {
+   debugger;
    start();
 });

@@ -49,11 +49,16 @@ BIGSCREENURL="file://D|d/s/github/BigScreen"
 DROPBOXURL="file://D|d/Dropbox/$DROPBOXSUBDIR"
 DROPBOXURL="$BIGSCREENURL/Dropbox/$DROPBOXSUBDIR"
 
+# firefox windows
+BIGSCREENURL="file:///D:/d/s/github/BigScreen"
+DROPBOXURL="$BIGSCREENURL/Dropbox/$DROPBOXSUBDIR"
+
 # set the browser to use unix/win/mac
 BROWSER=chromium-browser
 BROWSER="$BIGSCREEN/macbrowser.sh"
 BROWSER="/cygdrive/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 BROWSER="/cygdrive/c/Users/me/AppData/Local/Google/Chrome SxS/Application/chrome.exe"
+BROWSER="/cygdrive/c/Program Files (x86)/Mozilla Firefox/firefox.exe"
 
 export BIGSCREEN BIGSCREENURL DROPBOX DROPBOXSUBIR DROPBOXURL BROWSER SCRWIDTH SCRHEIGHT
 

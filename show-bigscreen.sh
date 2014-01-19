@@ -6,6 +6,7 @@ source settings.sh
 killall "$BROWSER"
 sleep 5
 
+echo "$BROWSER" "$BIGSCREENURL/bigscreen.html"
 "$BROWSER" "$BIGSCREENURL/bigscreen.html" \
 http://www.google.com \
 > bigscreen-browser.log 2>&1 &
