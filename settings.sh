@@ -47,6 +47,7 @@ DROPBOXURL=file://$DROPBOX/$DROPBOXSUBDIR
 # windows systems use:
 BIGSCREENURL="file://D|d/s/github/BigScreen"
 DROPBOXURL="file://D|d/Dropbox/$DROPBOXSUBDIR"
+DROPBOXURL="$BIGSCREENURL/Dropbox/$DROPBOXSUBDIR"
 
 # set the browser to use unix/win/mac
 BROWSER=chromium-browser
