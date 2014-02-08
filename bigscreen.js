@@ -6,12 +6,15 @@
    AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true, URLs, companyURLs, miscURLs
 */
 /*properties
-    '-', CHANGETIME, DEFAULT, DROPBOX, EFFECTTIME, NOINTERNET, NOINTERNETIMAGE, Options,
-    REFRESHTIME, SHOWURL, addClass, apply, blind, bounce, clip, console, drop,
-    effect, explode, floor, fold, fold2, hasOwnProperty, hide, highlight,
-    horizFirst, html, length, location, log, match, name, none, percent, pop,
-    puff, push, random, ready, reload, removeClass, replace, scale, shake, show,
-    size, slide
+    '-', CHANGETIME, CHANGETME, DEFAULT, DROPBOX, EFFECTTIME, FIXEDEFFECT,
+    NOINTERNET, NOINTERNETIMAGE, Options, REFRESHTIME, REFRESHTME, SHOWURL,
+    addClass, apply, blind, blind2, blind3, blind4, blind5, blind6, bounce, clip,
+    clip2, color, console, direction, drop, drop2, drop3, drop4, effect, explode,
+    explode2, explode3, fade, floor, fold, fold2, hasOwnProperty, hide,
+    highlight, horizFirst, html, length, location, log, match, name, none,
+    origin, percent, pieces, pop, puff, pulsate, push, random, ready, reload,
+    removeClass, replace, scale, scale2, scale3, scale4, scale5, shake, shake2,
+    show, size, slide, slide2, slide3, slide4, times
 */
 
 "use strict";
@@ -20,29 +23,55 @@ var idx = 0;
 var stop = false;
 var bReloadFlag = false;
 var loadedURL;
+var effectUsed;
 
 var artURLs = [];
 
 // Documentation for Effects:
 // http://api.jqueryui.com/category/effects/
-var fixedEffect = 'bounce';
 var Effects = {
    'none': {},
-   'blind': {},
+   'blind': { direction: "up" },
+   'blind2': { direction: "down" },
+   'blind3': { direction: "left" },
+   'blind4': { direction: "right" },
+   'blind5': { direction: "vertical" },
+   'blind6': { direction: "horizontal" },
    'bounce': {},
-   'clip': {},
-   'drop': {},
-   'explode': {},
+   'clip': { direction: "vertical" },
+   'clip2': { direction: "horizontal" },
+   'drop': { direction: "left" },
+   'drop2': { direction: "right" },
+   'drop3': { direction: "up" },
+   'drop4': { direction: "down" },
+   'explode': { pieces: 9 },
+   'explode2': { pieces: 4 },
+   'explode3': { pieces: 16 },
    'fade': {}, // new
    'fold': { size: 200 },
    'fold2': { size: 200, horizFirst: true },
-   'highlight': {},
-   'puff': {},
-   'pulsate': {}, // try again
-   'scale': { percent: 0 },
-   'shake': {},
-//   'size': { to: { width: 0, height: 200 } },
-   'slide': {},
+   'highlight': { color: "red" }, // only works well for images smaller than the viewport
+/*
+   'highlight3': { color: "yellow" },
+   'highlight4': { color: "green" },
+   'highlight5': { color: "blue" },
+   'highlight6': { color: "violet" },
+   'highlight7': { color: "black" },
+*/
+   'puff': { percent: 150 },
+   'pulsate': { times: 3 },
+   'scale': { percent: 0 }, // default center
+   'scale2': { percent: 0, origin: ["bottom", "right"] },
+   'scale3': { percent: 0, origin: ["bottom", "left"] },
+   'scale4': { percent: 0, origin: ["top", "right"] },
+   'scale5': { percent: 0, origin: ["top", "left"] },
+   'shake': { times: 5 },
+   'shake2': { direction: "up", times: 5 },
+   //'size': { to: { width: 0, height: 200 }, origin: ["bottom", "right"], scale: "content" },
+   'slide': { direction: "left" },
+   'slide2': { direction: "up" },
+   'slide3': { direction: "down" },
+   'slide4': { direction: "right" },
 
    '-': []
 };
@@ -104,11 +133,19 @@ function choose(rArray) {
    if (bReloadFlag && (0 === idxNow)) {
       window.location.reload(true);
    }
+   if ('-' === rArray[idxNow]) {
+      // skip any '-' signal in the array
+      return choose(rArray);
+   }
    return rArray[idxNow];
 }
 
 function chooseRandom(rArray) {
    var URL = rArray[Math.floor(Math.random() * rArray.length)];
+   if ('-' === URL) {
+      // skip any '-' signal in the array
+      return chooseRandom(rArray);
+   }
    return URL;
 }
 
@@ -127,10 +164,13 @@ function chooseContent() {
 
 function chooseEffect() {
    var effect, TheEffect = {};
-   effect = Effects['-'][Math.floor(Math.random() * Effects['-'].length)];
 
-//effect = fixedEffect;
+   effect = SETTINGS.FIXEDEFFECT;
+   if ("" === SETTINGS.FIXEDEFFECT) {
+      effect = Effects['-'][Math.floor(Math.random() * Effects['-'].length)];
+   }
    log("using effect: " + effect);
+   effectUsed = effect;
    TheEffect.name = effect;
    TheEffect.Options = Effects[effect];
    effect = effect.replace(/\d+$/, '');
@@ -142,7 +182,7 @@ function chooseEffect() {
 function setFloatURL(URL) {
    var rFloat = jQuery('#floatURL');
    if (URL) {
-      rFloat.html('<code><b>' + URL + '</b></code>');
+      rFloat.html('<code>' + effectUsed + '&nbsp;<b>' + URL + '</b></code>');
       if (SETTINGS.SHOWURL) {
          rFloat.removeClass('hidden');
       } else {
@@ -167,7 +207,6 @@ function loadContent(idImg) {
 }
 
 function onBottomPanelHidden() {
-   debugger;
    if (!stop) {
       setFloatURL(loadedURL);
       log("onBottomPanelHidden", SETTINGS.CHANGETME);
@@ -226,15 +265,20 @@ function showURL() {
 // a debugging function to stop the panels changing
 function freeze() {
    stop = true;
+   log("setting stop flag");
 }
 
 // a debugging function to restart the panel changes
 function thaw() {
+   log("clearing stop flag and scheduling a slide change");
+
+   if (stop) {
+      jQuery('#panel1').show();
+      setTimeout(function () {
+         hideTopPanel();
+      }, SETTINGS.CHANGETIME);
+   }
    stop = false;
-   jQuery('#panel1').show();
-   setTimeout(function () {
-      hideTopPanel();
-   }, SETTINGS.CHANGETIME);
 }
 
 function setPageReloadTimeout() {
@@ -246,7 +290,15 @@ function setPageReloadTimeout() {
    }
 }
 
+function help() {
+   log("help - debug functions you can use:");
+   log("freeze: set stop flag to pause slide change on next timeout");
+   log("thaw: clear stop flag and schedule a slid change");
+   log("showURL: turn on display of effect and URL bar");
+}
+
 function start() {
+   help();
    var timer = setInterval(function () {
       log('Interval timer ' + timer);
       if (!SETTINGS.DEFAULT && URLs) {
@@ -263,6 +315,5 @@ function start() {
 }
 
 jQuery(document).ready(function () {
-   debugger;
    start();
 });
