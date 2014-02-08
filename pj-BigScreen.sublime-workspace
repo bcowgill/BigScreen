@@ -11,39 +11,39 @@
 			"file": "go.sh",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
+				"buffer_size": 215,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "bigscreen.html",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
+				"buffer_size": 1623,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
+				"buffer_size": 13677,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
+				"buffer_size": 120,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "urls.js",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 1992,
 				"line_ending": "Windows"
 			}
 		},
@@ -51,8 +51,16 @@
 			"file": "bigscreen.js",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
+				"buffer_size": 6918,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "pj-BigScreen.sublime-workspace",
+			"settings":
+			{
+				"buffer_size": 5237,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -114,7 +122,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -122,7 +130,7 @@
 					"file": "go.sh",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 215,
 						"regions":
 						{
 						},
@@ -148,7 +156,7 @@
 					"file": "bigscreen.html",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1623,
 						"regions":
 						{
 						},
@@ -176,7 +184,7 @@
 					"file": "/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 13677,
 						"regions":
 						{
 						},
@@ -204,7 +212,7 @@
 					"file": "/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 120,
 						"regions":
 						{
 						},
@@ -230,7 +238,7 @@
 					"file": "urls.js",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1992,
 						"regions":
 						{
 						},
@@ -258,7 +266,7 @@
 					"file": "bigscreen.js",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 6918,
 						"regions":
 						{
 						},
@@ -274,6 +282,33 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 3,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "pj-BigScreen.sublime-workspace",
+					"settings":
+					{
+						"buffer_size": 5237,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
