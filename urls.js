@@ -1,5 +1,17 @@
 // urls.js
-// Configure your team/personal preferences for what URLs to show
+// Configure your team/personal preferences for what URLs to show and when you have daily stand up meetings
+
+// Check if current time is stand up meeting time
+// hourMinute at 10:25 AM will be 10.25
+// hourMinute at 3:30 PM will be 15.30
+function timeForMeeting (hourMinute) {
+   // example meeting at 10:30 for 15 mins, give margin of 5 mins before/after
+   if (hourMinute >= 10.25
+      && hourMinute <= 10.50) {
+      return true;
+   }
+   return false;
+}
 
 // Main list of URLs to loop over. COMANY, MISC and ART lists will be
 // chosen from where indicated within this list.
@@ -23,6 +35,15 @@ var URLs = [
 
    // perhaps your team's scrum/kanban wall or code coverage?
    'http://www.targetprocess.com/userguides/guides/user-guide/kanban_board.png',
+
+   // Marks the end of array to prevent comma syntax errors, is skipped when processing
+   '-'
+];
+
+// URLs to show during stand up meeting. Probably just the team wall/bugs or build status
+var meetingURLs = [
+   // your build screen URL here
+   'http://blog.stevienova.com/wp-content/uploads/2010/10/screen_01b.png',
 
    // Marks the end of array to prevent comma syntax errors, is skipped when processing
    '-'

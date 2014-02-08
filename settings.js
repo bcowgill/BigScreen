@@ -10,5 +10,6 @@ var SETTINGS = {
    'NOINTERNET': false,
    'NOINTERNETIMAGE': 'HIDDEN/no-internet.jpg',
    'STARTIMAGE': 'wallpaper.png',
+   'LOG': false,
    '-': '-'
 };

@@ -11,7 +11,7 @@ You can set this up on unix/linux/mac or Windows with cygwin installed.
 
 Edit settings.sh to define where you installed this project, where your photos are (Dropbox), what browser to use and the screen dimensions. You can also set the transition and reload timings or turn on a display of the URL or NO INTERNET AVAILABLE image. Any directories or files in your Dropbox with HIDDEN in the name will not be shown. You can also select a fixed transition effect rather than a randomly chosen one each time.
 
-Edit urls.js to configure the URL's for your team build results (builds, bugs, test results, coverage, etc) and other URL's to display.
+Edit urls.js to configure the URL's for your team build results (builds, bugs, test results, coverage, etc) and other URL's to display. You can also configure a URL list to show only during your stand up meeting.
 
 Kicking it off:
 

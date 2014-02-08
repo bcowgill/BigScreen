@@ -3,7 +3,7 @@
 
 /*jslint browser: true, plusplus: true, maxerr: 1000, indent: 3 */
 /*global
-   AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true, URLs, companyURLs, miscURLs
+   AutoPics, Math, SETTINGS, jQuery, hideTopPanel: true, URLs, companyURLs, miscURLs, meetingURLs, timeForMeeting
 */
 /*properties
     '-', CHANGETIME, CHANGETME, DEFAULT, DROPBOX, EFFECTTIME, FIXEDEFFECT,
@@ -77,7 +77,7 @@ var Effects = {
 };
 
 function log() {
-   if (window.console && window.console.log) {
+   if (window.console && window.console.log && SETTINGS.LOG) {
       window.console.log.apply(window.console, arguments);
    }
 }
@@ -149,8 +149,18 @@ function chooseRandom(rArray) {
    return URL;
 }
 
+function checkForMeeting() {
+   var inMeeting = false, date = new Date(), time = date.getHours() + date.getMinutes() / 100;
+   if ("function" === typeof timeForMeeting) {
+      log(time + " Checking for a meeting.");
+      inMeeting = timeForMeeting(time);
+   }
+   log("inMeeting? " + inMeeting);
+   return inMeeting;
+}
+
 function chooseContent() {
-   var URL = choose(URLs);
+   var inMeeting = checkForMeeting(), URL = choose(inMeeting ? meetingURLs : URLs);
    if (URL === 'COMPANY') {
       URL = chooseRandom(companyURLs);
    } else if (URL === 'ART') {

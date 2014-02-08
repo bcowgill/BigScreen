@@ -25,6 +25,7 @@ perl -e "print qq[var SETTINGS = {\n   'REFRESHTIME': '$REFRESHTIME',\
 \n   'WIDTH': $SCRWIDTH,\n   'HEIGHT': $SCRHEIGHT,\
 \n   'SHOWURL': $SHOWURL,\n   'NOINTERNET': $NOINTERNET,\
 \n   'NOINTERNETIMAGE': '$NOINTERNETIMAGE',\n   'STARTIMAGE': '$STARTIMAGE',\
+\n   'LOG': $LOG,\
 \n   '-': '-'\n};\n]" \
  > settings.js
 cat settings.js

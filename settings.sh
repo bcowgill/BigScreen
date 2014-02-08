@@ -38,6 +38,8 @@ STARTIMAGE="wallpaper.png"
 
 # show the url of the currently viewed slide - for debugging when a slide shows problems
 SHOWURL=false
+# allow console logging of what is going on.
+LOG=false
 
 # flag to use the no internet image for everything
 NOINTERNET=false
