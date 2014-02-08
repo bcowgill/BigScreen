@@ -8,6 +8,38 @@
 	"buffers":
 	[
 		{
+			"file": "settings.sh",
+			"settings":
+			{
+				"buffer_size": 2939,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bigscreen.js",
+			"settings":
+			{
+				"buffer_size": 7924,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bigscreen.html",
+			"settings":
+			{
+				"buffer_size": 1664,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "urls.js",
+			"settings":
+			{
+				"buffer_size": 2702,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "go.sh",
 			"settings":
 			{
@@ -16,51 +48,38 @@
 			}
 		},
 		{
-			"file": "bigscreen.html",
+			"file": "make-auto-pics.sh",
 			"settings":
 			{
-				"buffer_size": 1623,
+				"buffer_size": 1672,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+			"file": "css/style.css",
 			"settings":
 			{
-				"buffer_size": 13677,
+				"buffer_size": 5457,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 120,
+				"buffer_size": 1657,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "urls.js",
+			"contents": "// Documentation for Effects:\n// http://api.jqueryui.com/category/effects/\nvar Effects = {\n   'none': {},\n   'blind': { direction: \"up\" },\n   'blind2': { direction: \"down\" },\n   'blind3': { direction: \"left\" },\n   'blind4': { direction: \"right\" },\n   'blind5': { direction: \"vertical\" },\n   'blind6': { direction: \"horizontal\" },\n   'bounce': {},\n   'clip': { direction: \"vertical\" },\n   'clip2': { direction: \"horizontal\" },\n   'drop': { direction: \"left\" },\n   'drop2': { direction: \"right\" },\n   'drop3': { direction: \"up\" },\n   'drop4': { direction: \"down\" },\n   'explode': { pieces: 9 },\n   'explode2': { pieces: 4 },\n   'explode3': { pieces: 16 },\n   'fade': {}, // new\n   'fold': { size: 200 },\n   'fold2': { size: 200, horizFirst: true },\n   'highlight': { color: \"red\" }, // only works well for images smaller than the viewport\n/*\n   'highlight3': { color: \"yellow\" },\n   'highlight4': { color: \"green\" },\n   'highlight5': { color: \"blue\" },\n   'highlight6': { color: \"violet\" },\n   'highlight7': { color: \"black\" },\n*/\n   'puff': { percent: 150 },\n   'pulsate': { times: 3 },\n   'scale': { percent: 0 }, // default center\n   'scale2': { percent: 0, origin: [\"bottom\", \"right\"] },\n   'scale3': { percent: 0, origin: [\"bottom\", \"left\"] },\n   'scale4': { percent: 0, origin: [\"top\", \"right\"] },\n   'scale5': { percent: 0, origin: [\"top\", \"left\"] },\n   'shake': { times: 5 },\n   'shake2': { direction: \"up\", times: 5 },\n   //'size': { to: { width: 0, height: 200 }, origin: [\"bottom\", \"right\"], scale: \"content\" },\n   'slide': { direction: \"left\" },\n   'slide2': { direction: \"up\" },\n   'slide3': { direction: \"down\" },\n   'slide4': { direction: \"right\" },\n\n   '-': []\n};\n",
+			"file": "effects.js",
+			"file_size": 1726,
+			"file_write_time": 130363656180313490,
 			"settings":
 			{
-				"buffer_size": 1992,
+				"buffer_size": 1678,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "bigscreen.js",
-			"settings":
-			{
-				"buffer_size": 6918,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "pj-BigScreen.sublime-workspace",
-			"settings":
-			{
-				"buffer_size": 5237,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -88,10 +107,16 @@
 	},
 	"file_history":
 	[
+		"/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/D/d/s/github/BigScreen/pj-BigScreen.sublime-workspace",
+		"/D/d/s/github/BigScreen/js/jquery-ui-1.8.16.custom.min.js",
+		"/D/d/s/github/BigScreen/js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js",
+		"/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/JavaScript.sublime-settings"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 42.0
 	},
 	"find_in_files":
 	{
@@ -105,6 +130,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"URLs",
+			"log",
+			"checkFor",
+			"chooseRandom",
+			"debugging",
+			"Effects",
+			"Effect",
+			"bounce",
+			"TheEffect",
+			"freeze",
+			"console",
+			"fixedEffect",
+			"loadedURL",
+			"setFloatURL"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -122,11 +161,125 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 8,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "settings.sh",
+					"settings":
+					{
+						"buffer_size": 2939,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1173,
+								1173
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 521.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "bigscreen.js",
+					"settings":
+					{
+						"buffer_size": 7924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7629,
+								7633
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								78
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6757.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "bigscreen.html",
+					"settings":
+					{
+						"buffer_size": 1664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								905,
+								905
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 442.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "urls.js",
+					"settings":
+					{
+						"buffer_size": 2702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "go.sh",
 					"settings":
 					{
@@ -152,163 +305,106 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "bigscreen.html",
-					"settings":
-					{
-						"buffer_size": 1623,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 13677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 120,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "urls.js",
-					"settings":
-					{
-						"buffer_size": 1992,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "bigscreen.js",
+					"file": "make-auto-pics.sh",
 					"settings":
 					{
-						"buffer_size": 6918,
+						"buffer_size": 1672,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								897,
+								897
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 234.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "pj-BigScreen.sublime-workspace",
+					"file": "css/style.css",
 					"settings":
 					{
-						"buffer_size": 5237,
+						"buffer_size": 5457,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3493,
+								3493
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2129.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 1657,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								962,
+								962
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 104.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "effects.js",
+					"settings":
+					{
+						"buffer_size": 1678,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								57,
+								57
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -375,6 +471,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 247.0,
 	"status_bar_visible": true
 }
