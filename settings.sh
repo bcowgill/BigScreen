@@ -18,11 +18,14 @@ let MINUTES=60*SECONDS
 # default time (millisecs) between page reload, slide change and special effect
 let REFRESHTIME=60*MINUTES
 let CHANGETIME=30*SECONDS
-let EFFECTTIME=1*SECONDS
+let EFFECTTIME=2*SECONDS
+# Set a single transition effect to use here if you like
+# none, blind, clip, scale, fade, slide, shake, highlight, puff, clip2, blind2-6, slide2-4, scale2-5, shake2, drop, pulsate, fold, explode, fold2, bounce, drop2-4, explode2-3
+FIXEDEFFECT=""
 
 # settings when debugging
 #let REFRESHTIME=3*MINUTES
-#let CHANGETIME=10*SECONDS
+#let CHANGETIME=5*SECONDS
 #let EFFECTTIME=300*MILLISEC
 
 # full path to location of this BigScreen project

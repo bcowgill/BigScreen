@@ -1,8 +1,9 @@
 var SETTINGS = {
    'REFRESHTIME': '3600000',
    'CHANGETIME': '30000',
-   'EFFECTTIME': '1000',
-   'DROPBOX': 'file:///D:/d/s/github/BigScreen/Dropbox/Photos/Wallpaper',
+   'EFFECTTIME': '2000',
+   'FIXEDEFFECT': '',
+   'DROPBOX': 'file://D|d/s/github/BigScreen/Dropbox/Photos/Wallpaper',
    'WIDTH': 1920,
    'HEIGHT': 1080,
    'SHOWURL': false,
