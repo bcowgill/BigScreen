@@ -23,6 +23,8 @@ var loadedURL;
 
 var artURLs = [];
 
+// Documentation for Effects:
+// http://api.jqueryui.com/category/effects/
 var fixedEffect = 'bounce';
 var Effects = {
    'none': {},
@@ -31,11 +33,12 @@ var Effects = {
    'clip': {},
    'drop': {},
    'explode': {},
+   'fade': {}, // new
    'fold': { size: 200 },
    'fold2': { size: 200, horizFirst: true },
    'highlight': {},
    'puff': {},
-//   'pulsate': {},
+   'pulsate': {}, // try again
    'scale': { percent: 0 },
    'shake': {},
 //   'size': { to: { width: 0, height: 200 } },
