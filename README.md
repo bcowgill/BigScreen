@@ -8,7 +8,7 @@ This allows you to alternate between team related project views and other things
 
 You can set this up on unix/linux/mac or windows with cygwin installed.
 
-1. Edit settings.sh to define:
+1. Edit [settings.sh](settings.sh) to define:
     * where you installed this project
     * the screen dimensions. 
     * what browser to use
