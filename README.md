@@ -2,7 +2,7 @@
 
 A Team Big Screen slide switcher which runs in the browser.
 
-This allows you to alternate between team related project views and other things like a Dropbox full of pictures, news sites and pages from the company website.
+This allows you to alternate between team related project views and other things like a [Dropbox](http://dropbox.com) full of pictures, news sites and pages from the company website.
 
 During your regular stand up meeting you can have it only show your team screens (burndown, kanban wall, etc)
 
@@ -14,8 +14,8 @@ You can set this up on unix/linux/mac or windows with cygwin installed.
     * where you installed this project
     * the screen dimensions. 
     * what browser to use
-    * where your images/charts/photos are (Dropbox)
-        * any directories or files in your Dropbox with HIDDEN in the name will not be shown
+    * where your images/charts/photos are i.e. [Dropbox](Dropbox/Photos/Wallpaper/)
+        * any directories or files in your [Dropbox](Dropbox/Photos/Wallpaper/) with [HIDDEN](Dropbox/Photos/Wallpaper/HIDDEN/) in the name will not be shown
     * transition and page reload timings
     * select a fixed transition effect rather than a randomly chosen one
     * turn on a display of the Effect/URL
@@ -33,7 +33,7 @@ You can set this up on unix/linux/mac or windows with cygwin installed.
 
 Run the [make-auto-pics.sh](make-auto-pics.sh) script to scan for your pictures and generate an automatic list of pictures to loop through.
 
-This also updates the [HTML](bigscreen.html) and [CSS](css/style.css) files as needed for the screen size, Dropbox location  and starting image.
+This also updates the [HTML](bigscreen.html) and [CSS](css/style.css) files as needed for the screen size, [Dropbox](Dropbox/Photos/Wallpaper/) location  and starting image.
 
 Check [auto-pics.js](auto-pics.js) to ensure it has only found the pictures you want to show on the Big Screen monitor.
 
